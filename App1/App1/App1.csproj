@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\clockViewModel.cs" />
+    <Compile Remove="ViewModels\HslViewModel.cs" />
+    <Compile Remove="ViewModels\KeypadViewModel.cs" />
+    <Compile Remove="Views\CommandDemo.xaml.cs" />
+    <Compile Remove="Views\InteractiveDemo.xaml.cs" />
+    <Compile Remove="Views\SimpleDemo.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\CommandDemo.xaml" />
+    <EmbeddedResource Remove="Views\InteractiveDemo.xaml" />
+    <EmbeddedResource Remove="Views\SimpleDemo.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Operaciones.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
